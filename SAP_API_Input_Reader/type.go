@@ -52,6 +52,7 @@ type EC_MC struct {
 	Deleted                        bool   `json:"deleted"`
 }
 
+
 type SDC struct {
 	ConnectionKey       string `json:"connection_key"`
 	Result              bool   `json:"result"`
@@ -59,9 +60,9 @@ type SDC struct {
 	Filepath            string `json:"filepath"`
 	PurchaseRequisition struct {
 		PurchaseRequisition     string `json:"PurchaseRequisition"`
-		PurchaseRequisitionType string `json:"PurchaseRequisitionType"`
-		SourceDetermination     bool   `json:"SourceDetermination"`
-		PurchaseRequisitionItem struct {
+		PurchaseRequisitionType *string `json:"PurchaseRequisitionType"`
+		SourceDetermination     *bool   `json:"SourceDetermination"`
+		PurchaseRequisitionItem []struct {
 			PurchaseRequisitionItem        string `json:"PurchaseRequisitionItem"`
 			PurchasingDocument             *string `json:"PurchasingDocument"`
 			PurchasingDocumentItem         *string `json:"PurchasingDocumentItem"`
@@ -110,40 +111,6 @@ type SDC struct {
 			Reservation                    *string `json:"Reservation"`
 			LastChangeDateTime             *string `json:"LastChangeDateTime"`
 			IsDeleted                      *string `json:"IsDeleted"`
-			PurchaseReqnAcctAssgmtNumber   struct {
-				PurchaseReqnAcctAssgmtNumber string `json:"PurchaseReqnAcctAssgmtNumber"`
-				CostCenter                   string `json:"CostCenter"`
-				MasterFixedAsset             string `json:"MasterFixedAsset"`
-				FixedAsset                   string `json:"FixedAsset"`
-				ProjectNetwork               string `json:"ProjectNetwork"`
-				CostElement                  string `json:"CostElement"`
-				CostObject                   string `json:"CostObject"`
-				GLAccount                    string `json:"GLAccount"`
-				BusinessArea                 string `json:"BusinessArea"`
-				SalesOrder                   string `json:"SalesOrder"`
-				SalesOrderItem               string `json:"SalesOrderItem"`
-				SalesOrderScheduleLine       string `json:"SalesOrderScheduleLine"`
-				OrderID                      string `json:"OrderID"`
-				UnloadingPointName           string `json:"UnloadingPointName"`
-				ControllingArea              string `json:"ControllingArea"`
-				ProfitabilitySegment         string `json:"ProfitabilitySegment"`
-				ProfitCenter                 string `json:"ProfitCenter"`
-				FunctionalArea               string `json:"FunctionalArea"`
-				GoodsRecipientName           string `json:"GoodsRecipientName"`
-				CostCtrActivityType          string `json:"CostCtrActivityType"`
-				WBSElement                   string `json:"WBSElement"`
-				IsDeleted                    string `json:"IsDeleted"`
-			} `json:"PurchaseReqnAcctAssgmtNumber"`
-			AddressID struct {
-				AddressID              string `json:"AddressID"`
-				Country                string `json:"Country"`
-				Region                 string `json:"Region"`
-				StreetName             string `json:"StreetName"`
-				CityName               string `json:"CityName"`
-				CorrespondenceLanguage string `json:"CorrespondenceLanguage"`
-				FaxNumber              string `json:"FaxNumber"`
-				PhoneNumber            string `json:"PhoneNumber"`
-			} `json:"AddressID"`
 		} `json:"PurchaseRequisitionItem"`
 	} `json:"PurchaseRequisition"`
 	APISchema string   `json:"api_schema"`
